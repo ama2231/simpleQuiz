@@ -103,16 +103,34 @@ $('button').click(function(){
                             $('<label>').attr('for', 'obj3').text(answer).appendTo('#label')
                         })
                         $('<button>').addClass('btn btn-primary submit3').text('Submit').appendTo('#quizBody')
+                        $('.submit3').click(()=>{
+                            console.log('been clicked', quizObj[4]);
+                        $('#quizBody').empty();
+                        $('<h2>').text(quizObj[4].question).appendTo('#quizBody');
+                        quizObj[4].asked++
+                        quizObj[4].answers.forEach((answer) => {
+                        $('<div>').attr('id', 'label').appendTo('#quizBody')
+                        $('<input>').attr('type', 'radio').attr('id', 'obj4').addClass('radio').appendTo('#label')
+                        $('<label>').attr('for', 'obj4').text(answer).appendTo('#label')
+                        })
+                        $('<button>').addClass('btn btn-primary submit4').text('Submit').appendTo('#quizBody')
+                         $('.submit4').click(()=>{
+                            console.log('been clicked', quizObj[5]);
+                        $('#quizBody').empty();
+                        $('<h2>').text(quizObj[5].question).appendTo('#quizBody');
+                        quizObj[5].asked++
+                        quizObj[5].answers.forEach((answer) => {
+                        $('<div>').attr('id', 'label').appendTo('#quizBody')
+                        $('<input>').attr('type', 'radio').attr('id', 'obj4').addClass('radio').appendTo('#label')
+                        $('<label>').attr('for', 'obj4').text(answer).appendTo('#label')
+                        })
+                        $('<button>').addClass('btn btn-primary submit4').text('Submit').appendTo('#quizBody')
                         
-                        
-                            
+                        })
+
+                        })
                         })
                     });
-                    
-
                     });
-                    
-        
     })
-
 });
