@@ -52,5 +52,39 @@ $(document).ready(function () {
 
 
 ];
-console.log(quizObj.length, 'This is how many items that are in the quiz obj')
+// console.log(quizObj, 'This is how many items that are in the quiz obj')
+$('button').click(function(){
+    $('#quizBody').empty();
+    $('<h2>').text(quizObj[0].question).appendTo('#quizBody')
+    quizObj[0].asked ++;
+    console.log('quiz body has been emptied', quizObj[0])
+    quizObj[0].answers.forEach((answer,index)=>{
+        $('<div>').attr('id','label').appendTo('#quizBody')
+        $('<input>').attr('type', 'radio').attr('id','obj0').addClass('radio').appendTo('#label')
+        $('<label>').attr('for', 'obj0').text(answer).appendTo('#label')
+        
+    });
+    $('<button>').addClass('btn btn-primary submit').text('Submit').appendTo('#quizBody')
+    $('.submit').click(() => {
+        console.log('been clicked')
+        // when the submit button is clicked empty the quiz body 
+    $('#quizBody').empty();
+    $('<h2>').text(quizObj[1].question).appendTo('#quizBody')
+    quizObj[1].asked++;
+    console.log('quiz body has been emptied', quizObj[1])
+    quizObj[1].answers.forEach((answer) => {
+        $('<li>').text(answer).appendTo('#quizBody')
+
+    });
+    $('<button>').addClass('btn btn-primary submit').text('Submit').appendTo('#quizBody')
+        
+
+        // loop thru the quiz object and append the next question and answers
+    })
+    
+    
+    
+})
+// when the submit button is clicked the next element should be displayed
+
 });
