@@ -60,7 +60,7 @@ $('button').click(function(){
     console.log('quiz body has been emptied', quizObj[0])
     quizObj[0].answers.forEach((answer,index)=>{
         $('<div>').attr('id','label').appendTo('#quizBody')
-        $('<input>').attr('type', 'radio').attr('id','obj0').addClass('radio').appendTo('#label')
+        $('<input>').attr('type', 'radio').attr('id','obj0').attr('name','q1').addClass('radio').appendTo('#label')
         $('<label>').attr('for', 'obj0').text(answer).appendTo('#label')
         
     });
@@ -75,7 +75,7 @@ $('button').click(function(){
                     console.log('quiz body has been emptied', quizObj[1])
                     quizObj[1].answers.forEach((answer) => {
                         $('<div>').attr('id', 'label').appendTo('#quizBody')
-                        $('<input>').attr('type', 'radio').attr('id', 'obj1').addClass('radio').appendTo('#label')
+                        $('<input>').attr('type', 'radio').attr('id', 'obj1').attr('name', 'q2').addClass('radio').appendTo('#label')
                         $('<label>').attr('for', 'obj1').text(answer).appendTo('#label')
                     });
                     $('<button>').addClass('btn btn-primary submit1').text('Submit').appendTo('#quizBody')
@@ -87,7 +87,7 @@ $('button').click(function(){
                         quizObj[2].asked ++;
                         quizObj[2].answers.forEach((answer) => {
                             $('<div>').attr('id', 'label').appendTo('#quizBody')
-                            $('<input>').attr('type', 'radio').attr('id', 'obj2').addClass('radio').appendTo('#label')
+                            $('<input>').attr('type', 'radio').attr('id', 'obj2').attr('name', 'q3').addClass('radio').appendTo('#label')
                             $('<label>').attr('for', 'obj2').text(answer).appendTo('#label')
                         })
                         
@@ -99,7 +99,7 @@ $('button').click(function(){
                         quizObj[3].asked ++
                         quizObj[3].answers.forEach((answer) => {
                             $('<div>').attr('id', 'label').appendTo('#quizBody')
-                            $('<input>').attr('type', 'radio').attr('id', 'obj3').addClass('radio').appendTo('#label')
+                            $('<input>').attr('type', 'radio').attr('id', 'obj3').attr('name', 'q4').addClass('radio').appendTo('#label')
                             $('<label>').attr('for', 'obj3').text(answer).appendTo('#label')
                         })
                         $('<button>').addClass('btn btn-primary submit3').text('Submit').appendTo('#quizBody')
@@ -110,7 +110,7 @@ $('button').click(function(){
                         quizObj[4].asked++
                         quizObj[4].answers.forEach((answer) => {
                         $('<div>').attr('id', 'label').appendTo('#quizBody')
-                        $('<input>').attr('type', 'radio').attr('id', 'obj4').addClass('radio').appendTo('#label')
+                        $('<input>').attr('type', 'radio').attr('id', 'obj4').attr('name', 'q5').addClass('radio').appendTo('#label')
                         $('<label>').attr('for', 'obj4').text(answer).appendTo('#label')
                         })
                         $('<button>').addClass('btn btn-primary submit4').text('Submit').appendTo('#quizBody')
@@ -121,10 +121,10 @@ $('button').click(function(){
                         quizObj[5].asked++
                         quizObj[5].answers.forEach((answer) => {
                         $('<div>').attr('id', 'label').appendTo('#quizBody')
-                        $('<input>').attr('type', 'radio').attr('id', 'obj4').addClass('radio').appendTo('#label')
-                        $('<label>').attr('for', 'obj4').text(answer).appendTo('#label')
+                        $('<input>').attr('type', 'radio').attr('id', 'obj5').attr('name', 'q6').addClass('radio').appendTo('#label')
+                        $('<label>').attr('for', 'obj5').text(answer).appendTo('#label')
                         })
-                        $('<button>').addClass('btn btn-primary submit4').text('Submit').appendTo('#quizBody')
+                        $('<button>').addClass('btn btn-primary submit5').text('Submit').appendTo('#quizBody')
                         
                         })
 
@@ -135,4 +135,10 @@ $('button').click(function(){
                     });
                     });
     })
+
+
+
+
+
+
 });
