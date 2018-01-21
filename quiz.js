@@ -73,10 +73,11 @@ $('button').click(function(){
     quizObj[1].asked++;
     console.log('quiz body has been emptied', quizObj[1])
     quizObj[1].answers.forEach((answer) => {
-        $('<li>').text(answer).appendTo('#quizBody')
-
+       $('<div>').attr('id', 'label').appendTo('#quizBody')
+       $('<input>').attr('type', 'radio').attr('id', 'obj1').addClass('radio').appendTo('#label')
+       $('<label>').attr('for', 'obj1').text(answer).appendTo('#label')
     });
-    $('<button>').addClass('btn btn-primary submit').text('Submit').appendTo('#quizBody')
+    $('<button>').addClass('btn btn-primary submit1').text('Submit').appendTo('#quizBody')
         
 
         // loop thru the quiz object and append the next question and answers
