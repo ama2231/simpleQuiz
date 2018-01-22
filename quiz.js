@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $('h1').css('color', 'pink')
     $('body').css('background-color', 'lavender')
+    let yes = 0;
+    let no = 0;
     let quizObj = [{
         question: "Who was the legendary Benedictine monk who invented champagne?",
         answers: ['Dom Perignon', 'Perrier Jouet', 'Veuve Clicquot', 'A monk did not invent champagne'],
@@ -73,12 +75,12 @@ $('button').click(function(){
             var checker = $("form input[name='q1']:checked").text();
             console.log(checker)
             if(quizObj[0].correctAnswer === checker){
-                quizObj[0].correct ++;
+                yes ++;
             } else{
-                 quizObj[0].wrong ++;
+                 no ++;
 
             }
-            console.log(quizObj[0])
+            console.log(yes, no)
         
                     // console.log('been clicked')
                     // when the submit button is clicked empty the quiz body 
@@ -98,10 +100,9 @@ $('button').click(function(){
                  var checker = $("form input[name='q2']:checked").text();
             console.log(checker)
             if(quizObj[1].correctAnswer === checker){
-                quizObj[1].correct ++;
+                yes ++
             } else{
-                 quizObj[1].wrong ++;
-
+                no ++
             }
             console.log(quizObj[1])
                         // console.log('been clicked', quizObj[2])
@@ -121,9 +122,9 @@ $('button').click(function(){
                             var checker = $("form input[name='q3']:checked").text();
                 console.log(checker)
             if(quizObj[2].correctAnswer === checker){
-                quizObj[2].correct ++;
+                yes ++;
             } else{
-                 quizObj[2].wrong ++;
+                no ++;
 
             }
                         console.log(quizObj[2])
@@ -145,9 +146,9 @@ $('button').click(function(){
                             var checker = $("form input[name='q4']:checked").text();
                 console.log(checker)
             if(quizObj[3].correctAnswer === checker){
-                quizObj[3].correct ++;
+                yes ++;
             } else{
-            quizObj[3].wrong ++;
+                no ++;
 
             }
                         console.log(quizObj[3])
@@ -167,9 +168,9 @@ $('button').click(function(){
                                   var checker = $("form input[name='q5']:checked").text();
                                   console.log(checker)
                                   if (quizObj[4].correctAnswer === checker) {
-                                      quizObj[4].correct++;
+                                      yes ++;
                                   } else {
-                                      quizObj[4].wrong++;
+                                      no ++;
 
                                   }
                                   console.log(quizObj[4])
@@ -186,15 +187,18 @@ $('button').click(function(){
                         })
                         $('<button>').addClass('btn btn-primary submit5').text('Submit').appendTo('#quizBody')
                         $('.submit5').click(()=>{
+                            $('#quizBody').empty()
+                            $('<h1>').text('Results!').appendTo('#quizBody')
                            var checker = $("form input[name='q6']:checked").text();
                            console.log(checker)
                            if (quizObj[5].correctAnswer === checker) {
-                               quizObj[5].correct++;
+                               yes ++;
                            } else {
-                               quizObj[5].wrong++;
+                               no ++;
 
                            }
-                           console.log(quizObj[5])
+                           $('<h1>').text('Correct ' + yes).appendTo('#quizBody')
+                           $('<h1>').text('Wrong ' + no).appendTo('#quizBody')
                         })
                         
                         })
