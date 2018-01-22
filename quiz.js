@@ -58,87 +58,153 @@ $('button').click(function(){
     $('<h2>').text(quizObj[0].question).appendTo('#quizBody')
     quizObj[0].asked ++;
     console.log('quiz body has been emptied', quizObj[0])
+        $('<form>').attr('id', 'label').attr('method', 'post').appendTo('#quizBody')
+    
     quizObj[0].answers.forEach((answer,index)=>{
-        $('<div>').attr('id','label').appendTo('#quizBody')
-        $('<input>').attr('type', 'radio').attr('id','obj0').attr('name','q1').addClass('radio').appendTo('#label')
+        $('<input>').attr('type', 'radio').attr('id','obj0').attr('name','q1').text(answer).addClass('radio').appendTo('#label')
         $('<label>').attr('for', 'obj0').text(answer).appendTo('#label')
         
     });
+
     $('<button>').addClass('btn btn-primary submit').text('Submit').appendTo('#quizBody')
+   
 
         $('.submit').click(() => {
-                    console.log('been clicked')
+            var checker = $("form input[name='q1']:checked").text();
+            console.log(checker)
+            if(quizObj[0].correctAnswer === checker){
+                quizObj[0].correct ++;
+            } else{
+                 quizObj[0].wrong ++;
+
+            }
+            console.log(quizObj[0])
+        
+                    // console.log('been clicked')
                     // when the submit button is clicked empty the quiz body 
                     $('#quizBody').empty();
                     $('<h2>').text(quizObj[1].question).appendTo('#quizBody')
                     quizObj[1].asked++;
-                    console.log('quiz body has been emptied', quizObj[1])
+                    // console.log('quiz body has been emptied', quizObj[1])
+            $('<form>').attr('id', 'label').attr('method', 'post').appendTo('#quizBody')
+                    
                     quizObj[1].answers.forEach((answer) => {
-                        $('<div>').attr('id', 'label').appendTo('#quizBody')
-                        $('<input>').attr('type', 'radio').attr('id', 'obj1').attr('name', 'q2').addClass('radio').appendTo('#label')
+                        $('<input>').attr('type', 'radio').attr('id', 'obj1').attr('name', 'q2').text(answer).addClass('radio').appendTo('#label')
                         $('<label>').attr('for', 'obj1').text(answer).appendTo('#label')
                     });
                     $('<button>').addClass('btn btn-primary submit1').text('Submit').appendTo('#quizBody')
                     
                     $('.submit1').click(() =>{
-                        console.log('been clicked', quizObj[2])
+                 var checker = $("form input[name='q2']:checked").text();
+            console.log(checker)
+            if(quizObj[1].correctAnswer === checker){
+                quizObj[1].correct ++;
+            } else{
+                 quizObj[1].wrong ++;
+
+            }
+            console.log(quizObj[1])
+                        // console.log('been clicked', quizObj[2])
                         $('#quizBody').empty();
                         $('<h2>').text(quizObj[2].question).appendTo('#quizBody');
                         quizObj[2].asked ++;
+            $('<form>').attr('id', 'label').attr('method', 'post').appendTo('#quizBody')
+                        
+
                         quizObj[2].answers.forEach((answer) => {
-                            $('<div>').attr('id', 'label').appendTo('#quizBody')
-                            $('<input>').attr('type', 'radio').attr('id', 'obj2').attr('name', 'q3').addClass('radio').appendTo('#label')
+                            $('<input>').attr('type', 'radio').attr('id', 'obj2').attr('name', 'q3').text(answer).addClass('radio').appendTo('#label')
                             $('<label>').attr('for', 'obj2').text(answer).appendTo('#label')
                         })
                         
                         $('<button>').addClass('btn btn-primary submit2').text('Submit').appendTo('#quizBody')
                         $('.submit2').click(() => {
-                            console.log('been clicked', quizObj[3]);
+                            var checker = $("form input[name='q3']:checked").text();
+                console.log(checker)
+            if(quizObj[2].correctAnswer === checker){
+                quizObj[2].correct ++;
+            } else{
+                 quizObj[2].wrong ++;
+
+            }
+                        console.log(quizObj[2])
+
+
+                            // console.log('been clicked', quizObj[3]);
                         $('#quizBody').empty();
                         $('<h2>').text(quizObj[3].question).appendTo('#quizBody');
                         quizObj[3].asked ++
+            $('<form>').attr('id', 'label').attr('method', 'post').appendTo('#quizBody')
+                        
                         quizObj[3].answers.forEach((answer) => {
-                            $('<div>').attr('id', 'label').appendTo('#quizBody')
-                            $('<input>').attr('type', 'radio').attr('id', 'obj3').attr('name', 'q4').addClass('radio').appendTo('#label')
+                            $('<input>').attr('type', 'radio').attr('id', 'obj3').attr('name', 'q4').text(answer).addClass('radio').appendTo('#label')
                             $('<label>').attr('for', 'obj3').text(answer).appendTo('#label')
                         })
                         $('<button>').addClass('btn btn-primary submit3').text('Submit').appendTo('#quizBody')
                         $('.submit3').click(()=>{
+
+                            var checker = $("form input[name='q4']:checked").text();
+                console.log(checker)
+            if(quizObj[3].correctAnswer === checker){
+                quizObj[3].correct ++;
+            } else{
+            quizObj[3].wrong ++;
+
+            }
+                        console.log(quizObj[3])
+
                             console.log('been clicked', quizObj[4]);
                         $('#quizBody').empty();
                         $('<h2>').text(quizObj[4].question).appendTo('#quizBody');
                         quizObj[4].asked++
+            $('<form>').attr('id', 'label').attr('method', 'post').appendTo('#quizBody')
+                        
                         quizObj[4].answers.forEach((answer) => {
-                        $('<div>').attr('id', 'label').appendTo('#quizBody')
-                        $('<input>').attr('type', 'radio').attr('id', 'obj4').attr('name', 'q5').addClass('radio').appendTo('#label')
+                        $('<input>').attr('type', 'radio').attr('id', 'obj4').attr('name', 'q5').addClass('radio').text(answer).appendTo('#label')
                         $('<label>').attr('for', 'obj4').text(answer).appendTo('#label')
                         })
                         $('<button>').addClass('btn btn-primary submit4').text('Submit').appendTo('#quizBody')
                          $('.submit4').click(()=>{
-                            console.log('been clicked', quizObj[5]);
+                                  var checker = $("form input[name='q5']:checked").text();
+                                  console.log(checker)
+                                  if (quizObj[4].correctAnswer === checker) {
+                                      quizObj[4].correct++;
+                                  } else {
+                                      quizObj[4].wrong++;
+
+                                  }
+                                  console.log(quizObj[4])
+
+                            // console.log('been clicked', quizObj[5]);
                         $('#quizBody').empty();
                         $('<h2>').text(quizObj[5].question).appendTo('#quizBody');
                         quizObj[5].asked++
+            $('<form>').attr('id', 'label').attr('method', 'post').appendTo('#quizBody')
+                        
                         quizObj[5].answers.forEach((answer) => {
-                        $('<div>').attr('id', 'label').appendTo('#quizBody')
-                        $('<input>').attr('type', 'radio').attr('id', 'obj5').attr('name', 'q6').addClass('radio').appendTo('#label')
+                        $('<input>').attr('type', 'radio').attr('id', 'obj5').attr('name', 'q6').text(answer).addClass('radio').appendTo('#label')
                         $('<label>').attr('for', 'obj5').text(answer).appendTo('#label')
                         })
                         $('<button>').addClass('btn btn-primary submit5').text('Submit').appendTo('#quizBody')
+                        $('.submit5').click(()=>{
+                           var checker = $("form input[name='q6']:checked").text();
+                           console.log(checker)
+                           if (quizObj[5].correctAnswer === checker) {
+                               quizObj[5].correct++;
+                           } else {
+                               quizObj[5].wrong++;
+
+                           }
+                           console.log(quizObj[5])
+                        })
                         
                         })
 
 
-                        //gj
                         })
                         })
                     });
                     });
     })
-
-
-
-
 
 
 });
