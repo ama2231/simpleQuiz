@@ -166,7 +166,7 @@ $('button').click(function(){
                         $('<button>').addClass('btn btn-primary submit4').text('Submit').appendTo('#quizBody')
                          $('.submit4').click(()=>{
                                   var checker = $("form input[name='q5']:checked").text();
-                                  console.log(checker)
+                                  console.log(checker, 'this is checker')
                                   if (quizObj[4].correctAnswer === checker) {
                                       yes ++;
                                   } else {
@@ -189,16 +189,29 @@ $('button').click(function(){
                         $('.submit5').click(()=>{
                             $('#quizBody').empty()
                             $('<h1>').text('Results!').appendTo('#quizBody')
-                           var checker = $("form input[name='q6']:checked").text();
-                           console.log(checker)
-                           if (quizObj[5].correctAnswer === checker) {
-                               yes ++;
+                        let checker = $("form input[name='q6']:checked").text();
+                    console.log(checker, 'this is checker')
+                    if (quizObj[5].correctAnswer === checker) {
+                        quizObj[5].correct ++
+                              yes ++;
                            } else {
                                no ++;
 
                            }
                            $('<h1>').text('Correct ' + yes).appendTo('#quizBody')
+                           debugger;
+                           let finalCorrect = quizObj.filter((obj) => {
+                               if(obj.correct === 1){
+                                   finalCorrect.push(obj)
+                                    console.log(finalCorrect)
+                               }
+                                
+                           })
+                          var tester = $('<h1>').text(quizObj[0].question + quizObj[0].correctAnswer).appendTo('#quizBody')
+                          console.log(tester)
                            $('<h1>').text('Wrong ' + no).appendTo('#quizBody')
+                           console.log(yes, no, 'this is the final tally')
+                           
                         })
                         
                         })
