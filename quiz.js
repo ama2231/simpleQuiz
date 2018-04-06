@@ -1,8 +1,10 @@
 $(document).ready(function () {
     $('h1').css('color', 'pink')
     $('body').css('background-color', 'lavender')
+    // counters for the tally of right and wrong
     let yes = 0;
     let no = 0;
+    // object with questions answers and correct answer 
     let quizObj = [{
         question: "Who was the legendary Benedictine monk who invented champagne?",
         answers: ['Dom Perignon', 'Perrier Jouet', 'Veuve Clicquot', 'A monk did not invent champagne'],
@@ -55,6 +57,8 @@ $(document).ready(function () {
 
 ];
 // console.log(quizObj, 'This is how many items that are in the quiz obj')
+    
+    // essentially the idea is the first time the button is clicked the body empties the next question in the obj is displayed
 $('button').click(function(){
     $('#quizBody').empty();
     $('<h2>').text(quizObj[0].question).appendTo('#quizBody')
@@ -85,17 +89,19 @@ $('button').click(function(){
                     // console.log('been clicked')
                     // when the submit button is clicked empty the quiz body 
                     $('#quizBody').empty();
+            // append the 2nd question 
                     $('<h2>').text(quizObj[1].question).appendTo('#quizBody')
                     quizObj[1].asked++;
                     // console.log('quiz body has been emptied', quizObj[1])
             $('<form>').attr('id', 'label').attr('method', 'post').appendTo('#quizBody')
-                    
+                    // here is where i loop thru the answers and make them clickable selections
                     quizObj[1].answers.forEach((answer) => {
                         $('<input>').attr('type', 'radio').attr('id', 'obj1').attr('name', 'q2').text(answer).addClass('radio').appendTo('#label')
                         $('<label>').attr('for', 'obj1').text(answer).appendTo('#label')
                     });
+          // new submit button is created with a different submit class so that i can target that class 
                     $('<button>').addClass('btn btn-primary submit1').text('Submit').appendTo('#quizBody')
-                    
+                    // when this is clicked check to see if the correct answer is equal to the selectd answer 
                     $('.submit1').click(() =>{
                  var checker = $("form input[name='q2']:checked").text();
             console.log(checker)
@@ -106,6 +112,7 @@ $('button').click(function(){
             }
             console.log(quizObj[1])
                         // console.log('been clicked', quizObj[2])
+                        // empty body and do the same thing over and over again
                         $('#quizBody').empty();
                         $('<h2>').text(quizObj[2].question).appendTo('#quizBody');
                         quizObj[2].asked ++;
